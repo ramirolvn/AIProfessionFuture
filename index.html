@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIProfessionFuture</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <select class="select-idioma" onchange="setLanguage(this.value)">
+        <option value="pt-BR">Português (Brasil)</option>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="hi">हिन्दी (Hindi)</option>
+        <option value="zh">中文 (Mandarin Chinese)</option>
+        <option value="bn">বাংলা (Bengali)</option>
+        <option value="ru">Русский (Russian)</option>
+        <option value="ja">日本語 (Japanese)</option>
+        <option value="pt-PT">Português (Portugal)</option>
+        <option value="de">Deutsch (German)</option>
+        <option value="ko">한국어 (Korean)</option>
+        <option value="fr">Français (French)</option>
+        <option value="tr">Türkçe (Turkish)</option>
+        <option value="vi">Tiếng Việt (Vietnamese)</option>
+        <option value="it">Italiano (Italian)</option>
+        <option value="ta">தமிழ் (Tamil)</option>
+        <option value="ur">اردو (Urdu)</option>
+        <option value="th">ไทย (Thai)</option>
+        <option value="ar">العربية (Arabic)</option>
+        <option value="pl">Polski (Polish)</option>
+        <option value="nl">Nederlands (Dutch)</option>
+        <option value="fa">فارسی (Persian)</option>
+        <option value="uk">Українська (Ukrainian)</option>
+        <option value="ro">Română (Romanian)</option>
+        <option value="hu">Magyar (Hungarian)</option>
+        <option value="sv">Svenska (Swedish)</option>
+        <option value="el">Ελληνικά (Greek)</option>
+        <option value="cs">Čeština (Czech)</option>
+        <option value="fi">Suomi (Finnish)</option>
+        <option value="ms">Bahasa Melayu (Malay)</option>
+    </select>
+    <h1 id="titulo">Veja se sua profissão será substituída por IA</h1>
+    <input type="text" class="input-profissao" id="placeholder" placeholder="Digite sua profissão">
+    <button class="botao-descobrir" onclick="descobrirProfissao()">Descobrir</button>
+    <div class="card" id="mensagem" style="display: none;">
+        <h2>Sua profissão será substituída por IA!</h2>
+    </div>
+    <a href="https://drive.google.com/file/d/1oYXMgB_dsF_i5JzlTlU2FI3XK3ufX99b/view" target="_blank" class="presentation-card-link">
+        <div class="presentation-card">
+            <img src="ramiro.png" alt="Foto de Ramiro Lima" class="profile-pic">
+            <div class="info">
+                <h3>Developed by Ramiro Lima</h3>
+                <p>iOS Developer / Full Stack</p>
+            </div>
+        </div>
+    </a>
+</div>
+<script src="translations.js"></script>
+<script>
+
+
+function descobrirProfissao() {
+    var profissao = document.querySelector('.input-profissao').value;
+    if (profissao !== '') {
+        document.getElementById('mensagem').style.display = 'block';
+    }
+}
+
+// Função para definir o idioma do site
+function setLanguage(lang) {
+    document.querySelector('html').lang = lang;
+    document.getElementById('titulo').textContent = translations[lang].titulo;
+    document.getElementById('placeholder').setAttribute('placeholder', translations[lang].placeholder);
+    document.querySelector('.botao-descobrir').textContent = translations[lang].botao;
+    document.getElementById('mensagem').textContent = translations[lang].mensagem;
+}
+</script>
+
+</body>
+</html>
